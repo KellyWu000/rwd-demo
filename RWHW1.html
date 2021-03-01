@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/4971a91f41.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet">
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: 'Noto Serif TC', serif;
+    }
+    .header{
+        height:50px;
+        background-color: #ccc;
+        position: relative;
+        left:50;
+        
+    }
+   .main-nav{
+       margin: 0 auto;
+
+   }
+    .logo img{
+        width: 54px;
+        height: 50px;
+        margin-left: 10px;
+        display: block;
+        position: absolute;
+        top:0px;
+    }
+ 
+    .menu_btn{
+        width: 35px;
+        height: 35px;
+        background-color: black;
+        display: block;
+        position:absolute;
+        top:5px;
+        right:10px;
+        border-radius: 5%;
+        
+    }
+    .menu_btn span{
+    opacity:0;    /*透明 */
+  width: 1px;
+  height: 2px;
+  overflow: hidden;
+
+    }
+    .menu_btn::before{
+        content:'';
+        position: absolute;
+        height: 2px;
+        left: 2px;
+        width: 30px;
+        background-color: rgb(250, 248, 248);
+        top:0;
+        bottom: 0;
+        margin: auto;
+        box-shadow: 0px 7px 0px #aaa,
+                   0px -7px 0px #aaa;
+
+    }
+  
+    nav a{
+        display: block;
+        text-decoration: none;
+        color: #aaa;
+        padding: 10px 50px;
+        border-bottom: 1px solid  #aaa;
+        font-size: 22px;
+        
+    }
+
+    nav a:hover{
+      transform: scale(1.2);
+     transition: 0.3s;
+  
+      
+    }
+    #menu_control{
+        position: absolute;
+        z-index: -2;/*隱藏*/
+        opacity:0; /*隱藏*/
+    }
+    #menu_control:checked ~ .header nav{
+        left:0;
+    }
+    /* css選取器 */
+
+    @media screen and (max-width: 767px) {
+        nav{
+        width: 100%;
+        height:calc(100vh - 50px); /*重疊到所以要扣掉header50px */
+        background-color:#282923;
+        position: absolute;
+        top:50px;
+        left:-100%;    /*先讓link出去 */
+        transition: 0.5s;
+        text-align: center;
+        }
+       .header-search{
+        display: flex;
+        padding: 10px 280px;
+        }
+
+        .header-search button ,
+        .header-search input{
+        border: none;
+        background-color: #fff;
+      
+
+
+        }
+
+
+        .header-search button:focus,
+        .header-search input:focus{
+        outline:none;
+        }
+        .header-search button {
+            border-radius: 0 200px 200px 0;
+            padding:5px 10px;
+          
+        }
+        .header-search input{
+            border-radius:200px 0 0 200px;
+            padding:2px 5px;
+            width: 120px;
+        }
+        .fa-shopping-cart{
+            position: absolute;
+            right:5px;
+            top:18px;
+            color :#333;   
+
+        }
+
+        .text .pic {
+        width:100%;
+        margin: 15px;
+        }
+
+        .banner .shadow{
+           
+            z-index: -1;
+        }
+
+    }
+    @media screen and (min-width:768px) {
+
+       .menu_btn{
+           display:none;
+  
+       }
+       .header{
+           display: flex;
+           justify-content: space-between;
+           background-color:#ccc;
+           align-items: center;
+          position: relative;
+          
+       }
+       nav{
+           position: relative;
+           left:0;
+           display:flex;
+           width: auto;
+           height:auto;
+           top:0;
+           background-color: transparent;
+       }
+.header-search{
+display: flex;
+}
+
+.header-search button ,
+.header-search input{
+border: none;
+background-color: #fff;
+}
+
+
+.header-search button:focus,
+.header-search input:focus{
+outline:none;
+}
+.header-search button {
+    border-radius: 0 200px 200px 0;
+    padding:5px 8px;
+}
+.header-search input{
+    border-radius:200px 0 0 200px;
+    padding:2px 5px;
+    width: 120px;
+}
+       /* .fa-shopping-cart {
+    color:#333;   
+    padding: 17px 20px;
+       } */
+       nav a{
+           border-bottom:none;    
+       }
+    
+    img{
+         vertical-align:bottom;/*設定不要對齊基線 */
+         padding-bottom: 15px;
+}
+    }
+    .item-group{
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+
+ 
+    .footer{
+        background-color:#ccc;
+        color: rgb(44, 42, 42);
+        text-align: left;
+       line-height: 2rem;
+       height: 165px;
+       padding: 30px 20px;
+       
+       
+    }
+.footer h1{
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration:#333;
+    margin-bottom:8px;
+}
+.icon {
+text-align:center; 
+font-size: 20px;
+}
+
+
+    .banner  {
+    width: 100%;
+    height: 500px;
+   background: 
+    url(images/banner.jpg)
+ /* 告訴瀏覽器背景圖片不要重覆顯示 */
+ no-repeat;
+ background-size: cover;
+
+   
+    
+    
+}
+.banner .shadow{
+position: absolute;
+color:rgb(24, 18, 18);
+background-color:rgba(240, 240, 240, 0.5);
+width: 50%;
+height:500px;
+top: 50px;
+
+}
+ .banner h2{
+margin: 90px 10px;
+text-align:left;
+line-height:0.5rem;
+font-size: 40px;
+font-weight: 550;
+color: rgb(70, 67, 67);
+
+ }
+ .banner h3{
+     text-align: left;
+     padding: 8px;
+     font-weight: 400;
+     font-size: 20px;
+    
+    
+   
+ }
+
+   
+    
+    .title{
+        margin: 0px 0px 10px;
+        padding: 5px 10px;
+        background-color: #ccc;
+        
+
+    }
+    .title h2{
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+   
+    }
+    .title p{
+        font-size: 17px;
+        text-align: center;
+        line-height: 1.5rem;
+        padding: 15PX;
+        
+    }
+    .item{
+        margin: 0 10px 20px;
+    }
+    .text h3{
+        font-size:22px;
+        font-weight: 500;
+        text-align: center;
+    }
+    .text{
+        width: 100%;
+        position: relative;
+
+      
+    }
+.text .pic {
+width:100%;
+vertical-align: middle;
+}
+.text .txt{
+    position:absolute;
+    top:0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    padding: 25px;
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    background-color:rgba(240, 240, 240, 0.5);
+    opacity: 0;
+    transition:opacity .5s;
+}
+
+.text h2{
+    font-size:35px;
+    font-weight: 400;
+    
+}
+.text h2:after{
+content:'';
+display: block;
+width: 0%;
+height: 2px;
+margin: 10px 0;
+background-color: rgb(24, 18, 18);
+transition: width .5s .3s;
+}
+.text:hover h2:after{
+    width:100%;
+   
+}
+.text:hover .txt{
+    opacity: 1;
+}
+.text p {
+    font-size: 20px;
+ 
+}
+
+.text h3{
+    position:absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    padding: 25px;
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    background-color:rgba(240, 240, 240, 0.5);
+ 
+
+    
+}
+
+.button{
+text-align: center;
+padding: 10px;
+}
+
+
+.text img{
+    width: 100%;
+    height:350px;
+    background-position: center center;
+  object-fit: cover;
+ 
+ 
+
+    }
+
+   
+    @media screen and (min-width: 768px) {
+     .item-group{
+        display: flex;
+        
+    }
+
+    nav a{
+        display: block;
+        text-decoration: none;
+        color:black;
+        padding: 10px 60px;
+        font-size: 20px;
+        position: relative;
+
+    }
+
+    .text{
+        padding: 10px;
+    }
+    .service{
+        margin: 60px 0;
+        background-color: rgb(248, 217, 178);
+    }
+    .service .item {
+        display: flex;
+        margin: 0;
+    }
+    .service .item .pic,
+    .service .item .text{
+        width: 50%;
+        margin: 0px;
+    }
+    .service .item .text{
+    display: flex;
+     flex-direction: column; /*垂直 */
+    justify-content: center;    /* 置中 */
+    padding:0 20px;
+    box-sizing: border-box;  }
+   
+   
+}
+   
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="" id="menu_control">
+    <div class="header">
+        <h1 class="logo">
+       <a href="#"> <img src ="images/deco-2.png"></a>
+       </h1>
+       <label for="menu_control" class="menu_btn">
+           <span>選單</span>
+       </label>
+       <nav class="main-nav"> 
+        <a href="#">首頁</a>
+        <a href="#">產品</a>
+        <a href="#">關於我們</a>
+        <a href="#">聯絡我們</a>
+       
+       </nav>
+       <form class="header-search">
+           <input type="search" id="">
+           <button><i class="fa fa-search"></i></button>
+       </form>
+     
+       <!-- <a href="#" class="cartBtn"> <i class="fas fa-shopping-cart"></i></a> -->
+
+   
+    </div>
+<div class="banner">
+    <div class="shadow">
+        <h2>DECO.CO</h2>
+        <h3>使用天然食材、不加食品添加物，用最純粹的甜點裝飾你的生活。 </h3>
+     </div>
+</div>
+    <div class="about">
+        <div class="wrap">
+            <div class="title">
+                <h2>經營理念</h2>
+                <p>提倡純植物性烘焙，愛護環境、友善動物因此我們完全不使用蛋、奶製品外，為了提供給有過敏體質的朋友能安心使用完全不使用麵粉及任何麩質的原料。
+                   <br> 我們想回歸純粹的美好，沒有華麗的妝點但實在、單純的甜點。</p>
+            </div>
+                <div class="item-group">
+                    <div class="text">
+                        <div class="pic">
+                        <img src ="images/img.jpg">  
+                        <div class="txt">
+                            <h2>阿拉比卡咖啡豆</h2>
+                            <p>好咖啡，來自高品質的咖啡豆</p>
+                        </div> 
+                       </div> 
+                      
+                    </div>
+                    <div class="text">
+                        <div class="pic">
+                                <img src ="images/img2.jpg">  
+                                <div class="txt">
+                                    <h2>無鹽發酵奶油</h2>
+                            <p>來自法國，天然發酵奶油</p>
+                              </div> 
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="pic">
+                            <img src ="images/img3.jpg">  
+                            <div class="txt">
+                                <h2>每日現打鮮奶油</h2>
+                            <p>法國鐵塔牌Elle & Vire</p>
+                            </div> 
+                           </div> 
+                       
+                    </div>
+                  
+                </div> 
+                
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="wrap">
+            <div class="title">
+                <h2>MENU</h2>
+               
+            </div>
+                <div class="item-group">
+                    <div class="text">
+                        <div class="pic">
+                        <img src ="images/des-1.jpg">  
+                       </div> 
+                       <h3>巧克力布朗尼</h3> 
+                        <p>無糖、無澱粉的巧克力布朗尼，全杏仁粉配方，巧克力控必吃的低碳甜點。
+                        </p>
+                    </div>
+                    <div class="text">
+                        <div class="pic">
+                            <img src ="images/des-3.jpg">  
+                           </div> 
+                        <h3>蔓越莓燕麥餅乾</h3> 
+                        <p>低醣新配方，好吃無負擔，每日新鮮現烤餅乾。
+                    </div>
+                    <div class="text">
+                        <div class="pic">
+                            <img src ="images/des-8.jpg">  
+                           </div> 
+                        <h3>燕麥奶拿鐵</h3> 
+                        <p>時下最夯的燕麥奶，搭配我們精挑細選的嚴選咖啡豆，最完美的搭配獻給您。
+                        </p>
+                    </div>
+                    <div class="text">
+                        <div class="pic">
+                            <img src ="images/des-2.jpg">  
+                           </div> 
+                        <h3>提拉米蘇咖啡</h3> 
+                        <p>靈感來自於美食家最愛的義大利甜點，帶有巧克力的頂級濃縮咖啡特調給您最完美的寵溺時光。
+                        </p>
+                    </div>
+                </div>    
+                <div class="button">
+                <input type="button" value="See more">
+            </div>
+        </div>
+    </div>
+
+    </div>
+    
+    <div class="footer">
+          <div class="contact">
+        <h1>關於我們</h1>
+        <p><i class="fas fa-map-marker-alt"></i>&nbsp台北市大安區光復南路100號</p>
+        <p><i class="fas fa-clock"></i>&nbsp10:00-21:00</p>
+        <p> <i class="fas fa-envelope"></i>&nbsp yijinwu5@gmail.com</p>
+        <p> <i class="fas fa-phone-alt"></i>&nbspTel:26336819</p>
+    </div>
+    
+        <div class="icon">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-square"></i>
+        <i class="far fa-envelope"></i> 
+      </div>
+    
+</div>
+   
+</body>
+</html>
